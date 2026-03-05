@@ -1,0 +1,30 @@
+<body>
+<header class="main-header">
+    <h1>Add a New Cat</h1>
+    <p>Fill in the details below</p>
+    <link rel="stylesheet" href="/css/add_cat.css">
+</header>
+
+<div class="container">
+    <div class="form-card">
+        <h2>Cat details</h2>
+
+        <form th:action="@{/cat/add}" th:object="${cat}" method="post">
+            <label for="name">Name</label>
+            <input id="name" type="text" th:field="*{name}" class="form-control" placeholder="Cat name">
+
+            <label for="birth">date</label>
+            <input id="birth" type="date" th:field="*{birth}" class="form-control">
+
+            <label for="color">Color</label>
+            <input id="color" type="text" th:field="*{color}" class="form-control" placeholder="Cat color">
+
+            <button type="submit" class="btn-submit">Save cat</button>
+
+            <p class="back-link">
+                <a href="/cat/list">Back to cats list</a>
+            </p>
+        </form>
+    </div>
+</div>
+</body>

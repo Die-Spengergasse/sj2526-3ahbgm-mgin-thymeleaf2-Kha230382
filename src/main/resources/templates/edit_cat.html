@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Cat</title>
+    <link rel="stylesheet" href="/css/edit_cat.css">
+</head>
+<body>
+<div class="container">
+    <h2>Katze bearbeiten</h2>
+
+    <form th:action="@{/cat/edit/{id}(id=${cat.id})}" th:object="${cat}" method="post">
+        <input type="text" th:field="*{name}" class="form-control" placeholder="Cat name">
+
+        <label>Birth date</label>
+        <input type="date" th:field="*{birth}" class="form-control">
+
+        <input type="text" th:field="*{color}" class="form-control" placeholder="Cat color">
+
+        <input type="submit" class="form-control" value="Update">
+
+    </form>
+
+    <p>
+            <a href="/cat/list">back to cat list</a>
+        </p>
+    </form>
+</div>
+</body>
+</html>

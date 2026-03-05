@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cats List</title>
+    <link rel="stylesheet" href="/css/cat_list.css">
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <div class="container">
+            <h1>Cats List</h1>
+            <p>All your lovely cats in one place</p>
+        </div>
+
+        <tr>
+            <th>name</th>
+            <th>birth</th>
+            <th>color</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${cats}">
+            <td th:text="${c.name}"></td>
+            <td th:text="${#temporals.format(c.birth, 'dd.MM.yyyy')}"></td>
+            <td th:text="${c.color}"></td>
+            <td>
+                <a th:href="@{/cat/edit/{id}(id=${c.id})}" class="btn btn-primary btn-sm">Edit</a>
+                <a th:href="@{/cat/delete/{id}(id=${c.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Bist du sicher, dass du diese Katze löschen möchtest?')">Delete</a> </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+    <p>
+        <a href="/cat/add" class="btn btn-success">new cat</a>
+    </p>
+</div>
+</body>
+</html>

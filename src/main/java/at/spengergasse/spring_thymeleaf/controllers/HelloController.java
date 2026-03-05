@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-@Controller
+//@Controller
 public class HelloController {
 
     @GetMapping("")
